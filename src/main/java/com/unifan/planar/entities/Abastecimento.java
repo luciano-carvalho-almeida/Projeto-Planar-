@@ -1,15 +1,27 @@
 package com.unifan.planar.entities;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Abastecimento {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private LocalDate data;
     private Double quilometragem;
     private Double litros;
+    
+    @Enumerated(EnumType.STRING)
     private TipoCombustivel tipoCombustivel;
+    
     private Double precoLitro;
+
+    @ManyToOne
+    @JoinColumn(name = "veiculo_id")
+    private Veiculo veiculo;
 
     public Abastecimento() {
     }
@@ -19,13 +31,10 @@ public class Abastecimento {
     }
 
     public Double calcularConsumo(Abastecimento anterior) {
-
         if (anterior == null) {
             return 0.0;
         }
-
         double distancia = this.quilometragem - anterior.getQuilometragem();
-
         return distancia / this.litros;
     }
 
@@ -75,5 +84,13 @@ public class Abastecimento {
 
     public void setPrecoLitro(Double precoLitro) {
         this.precoLitro = precoLitro;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }
