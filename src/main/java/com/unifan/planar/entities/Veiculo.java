@@ -35,12 +35,28 @@ public class Veiculo {
         this.placa = placa;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getAno() {
+        return ano;
+    }
+
+    public void setAno(Integer ano) {
+        this.ano = ano;
+    }
+
+    public Double getQuilometragemAtual() {
+        return quilometragemAtual;
+    }
+
+    public void setQuilometragemAtual(Double quilometragemAtual) {
+        this.quilometragemAtual = quilometragemAtual;
     }
 
     public String getModelo() {
@@ -49,22 +65,6 @@ public class Veiculo {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public int getAno() {
-        return ano;
-    }
-
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
-
-    public double getQuilometragemAtual() {
-        return quilometragemAtual;
-    }
-
-    public void setQuilometragemAtual(double quilometragemAtual) {
-        this.quilometragemAtual = quilometragemAtual;
     }
 
     public void atualizarQuilometragem(Double novaKm) {
