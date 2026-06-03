@@ -23,6 +23,18 @@ public class ServicoManutencao {
     @JoinColumn(name = "plano_revisao_id")
     private PlanoRevisao planoRevisao;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "veiculo_id")
+    private Veiculo veiculo;
+
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
 
     public void associarPlano(PlanoRevisao plano) {
         this.planoRevisao = plano;
