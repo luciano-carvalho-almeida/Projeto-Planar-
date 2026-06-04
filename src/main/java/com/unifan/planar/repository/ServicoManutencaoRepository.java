@@ -8,10 +8,12 @@ import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 
-public interface ServicoManutencaoRepository extends JpaRepository<ServicoManutencao, Long> {@Query("SELECT SUM(s.custo) FROM ServicoManutencao s " +
-        "WHERE s.veiculo = :veiculo " +
-        "AND s.dataRealizacao BETWEEN :dataInicio AND :dataFim")
-Double somarCustoPorPeriodo(@Param("veiculo") Veiculo veiculo,
-                            @Param("dataInicio") LocalDate dataInicio,
-                            @Param("dataFim") LocalDate dataFim);
+public interface ServicoManutencaoRepository extends JpaRepository<ServicoManutencao, Long> {
+    
+    @Query("SELECT SUM(s.custo) FROM ServicoManutencao s " +
+           "WHERE s.veiculo = :veiculo " +
+           "AND s.dataRealizacao BETWEEN :dataInicio AND :dataFim")
+    Double somarCustoPorPeriodo(@Param("veiculo") Veiculo veiculo,
+                                @Param("dataInicio") LocalDate dataInicio,
+                                @Param("dataFim") LocalDate dataFim);
 }
