@@ -55,6 +55,7 @@ class AbastecimentoControllerTest {
         Abastecimento abastecimentoSalvo = new Abastecimento();
         abastecimentoSalvo.setId(1L);
         abastecimentoSalvo.setLitros(40.0);
+        abastecimentoSalvo.setPrecoLitro(5.50);
 
         when(veiculoRepository.findById(1L)).thenReturn(Optional.of(veiculo));
         when(repository.save(any(Abastecimento.class))).thenReturn(abastecimentoSalvo);

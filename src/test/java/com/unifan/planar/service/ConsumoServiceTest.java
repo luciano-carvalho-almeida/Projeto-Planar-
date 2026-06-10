@@ -49,7 +49,7 @@ class ConsumoServiceTest {
     @Test
     void deveLancarExcecaoQuandoGasolinaForZero() {
         assertThatThrownBy(() -> consumoService.recomendarCombustivel(3.0, 0.0))
-                .isInstanceOf(ArithmeticException.class)
-                .hasMessageContaining("/ by zero");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Preço da gasolina não pode ser zero");
     }
 }

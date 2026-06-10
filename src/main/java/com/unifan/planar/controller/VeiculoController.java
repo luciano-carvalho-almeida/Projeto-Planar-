@@ -3,7 +3,9 @@ package com.unifan.planar.controller;
 import com.unifan.planar.entities.Veiculo;
 import com.unifan.planar.service.VeiculoService;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class VeiculoController {
     @GetMapping("/{id}")
     public Veiculo buscarPorId(@PathVariable Long id) {
         return service.buscarPorId(id)
-                .orElseThrow(() -> new RuntimeException("Veículo não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Veículo não encontrado"));
     }
 
     @DeleteMapping("/{id}")

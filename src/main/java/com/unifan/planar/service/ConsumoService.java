@@ -15,14 +15,13 @@ public class ConsumoService {
         return kmPercorridos / litrosConsumidos;
     }
 
-    public TipoCombustivel recomendarCombustivel(
-            Double precoEtanol,
-            Double precoGasolina) {
-
+    public TipoCombustivel recomendarCombustivel(Double precoEtanol, Double precoGasolina) {
+        if (precoGasolina == null || precoGasolina == 0.0) {
+            throw new IllegalArgumentException("Preço da gasolina não pode ser zero");
+        }
         if ((precoEtanol / precoGasolina) <= 0.70) {
             return TipoCombustivel.ETANOL;
         }
-
         return TipoCombustivel.GASOLINA;
     }
 }

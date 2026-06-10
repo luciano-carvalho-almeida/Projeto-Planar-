@@ -23,7 +23,7 @@ public class Veiculo {
         this.dataAquisicao = LocalDate.now();
     }
 
-    public Veiculo(long id, String placa, String modelo, int ano, double quilometragemAtual) {
+    public Veiculo(Long id, String placa, String modelo, int ano, double quilometragemAtual) {
         this.id = id;
         this.placa = placa;
         this.modelo = modelo;
