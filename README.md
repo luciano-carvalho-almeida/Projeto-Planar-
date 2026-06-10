@@ -100,7 +100,18 @@ As métricas de qualidade de código e cobertura de branches são validadas de f
 Certifique-se de possuir a **JDK 17** e o **Maven** configurados nas variáveis de ambiente do seu sistema.
 
 ### 7.2. Compilar o Projeto e Rodar os Testes
-Para compilar o código-fonte, baixar as dependências e executar a suíte completa de 71 testes automatizados gerando o relatório do JaCoCo, execute no terminal raiz do projeto:
-
 ```bash
 mvn clean test
+```
+### 7.3. Verificar o Relatório de Cobertura (JaCoCo)
+
+Após a execução dos testes com sucesso, o relatório visual detalhado em formato HTML estará disponível no diretório local:
+target/site/jacoco/index.html
+### 7.4. Executar a Aplicação
+
+Para inicializar o servidor embutido Tomcat e disponibilizar os endpoints REST locais na porta 8080, utilize o comando:
+Bash
+```bash
+mvn spring-boot:run
+```
+O console do H2 poderá ser acessado em tempo de execução via navegador através do endereço http://localhost:8080/h2-console utilizando as credenciais padrão descritas no arquivo application.properties.
